@@ -8,6 +8,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+openai-whisper = "^20231117"
+gradio = "^4.4.1"
 
 
 [build-system]
