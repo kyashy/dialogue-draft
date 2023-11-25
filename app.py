@@ -11,7 +11,7 @@ def create_dataframe(result):
     return df[["start", "end", "text"]]
 
 
-def transcribe_audio(input_file):
+def transcribe_audio(input_file, progress=gr.Progress(track_tqdm=True)):
     print(f"Loading whisper Model...")
     # If you specify device="cuda:0", 8GB memory will not be enough, so first put it on the CPU.
     model = whisper.load_model(name="large", device="cpu")
