@@ -42,7 +42,7 @@ def main():
             gr.Dataframe(label="Result", headers=["start", "end", "text"]),
             gr.File(label="Download"),
         ],
-        title="DialogueDraf",
+        title="DialogueDraft",
         allow_flagging="never",
     )
     # Queue functionality for handling multiple users
