@@ -12,12 +12,12 @@ def create_dataframe(result):
 
 
 def transcribe_audio(
-        audio_path,
-        model_name,
-        language,
-        initial_prompt,
-        progress=gr.Progress(track_tqdm=True)
-    ):
+    audio_path,
+    model_name,
+    language,
+    initial_prompt,
+    progress=gr.Progress(track_tqdm=True),
+):
     if language == "Auto":
         language = None
     print(f"Loading whisper Model...")
@@ -49,20 +49,18 @@ def main():
             # Define inputs
             with gr.Column():
                 audio_path = gr.Audio(
-                    sources=["upload"],
-                    type="filepath",
-                    label="Audio File"
+                    sources=["upload"], type="filepath", label="Audio File"
                 )
                 with gr.Accordion(label="Advanced Settings", open=False):
                     model_name = gr.Dropdown(
                         choices=["tiny", "base", "small", "medium", "large"],
                         value="large",
-                        label="Model"
+                        label="Model",
                     )
                     language = gr.Dropdown(
                         choices=["Japanese", "English", "Auto"],
                         value="Japanese",
-                        label="Language"
+                        label="Language",
                     )
                     initial_prompt = gr.Textbox(
                         label="Initial Prompt",
@@ -75,7 +73,7 @@ def main():
         audio_path.upload(
             transcribe_audio,
             inputs=[audio_path, model_name, language, initial_prompt],
-            outputs=[result, download]
+            outputs=[result, download],
         )
 
     # Queue functionality for handling multiple users
