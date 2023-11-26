@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import gradio as gr
 import whisper
@@ -35,10 +37,14 @@ def transcribe_audio(
     )
 
     df = create_dataframe(result)
-    output_file = "data/output/" + audio_path.split("/")[-1].split(".")[0] + ".csv"
+    audio_file_name = Path(audio_path).stem
+    output_dir = Path("data/output")
+    output_file = output_dir / f"{audio_file_name}.csv"
+
+    output_dir.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_file, index=False, encoding="utf-8-sig")
 
-    return df, output_file
+    return df, str(output_file)
 
 
 def main():
