@@ -69,8 +69,7 @@ def main():
                         label="Language"
                     )
                     initial_prompt = gr.Textbox(
-                        value="議事録を作成します。",
-                        label="Initial Prompt"
+                        label="Initial Prompt",
                     )
             # Define outputs
             with gr.Column():
