@@ -18,8 +18,6 @@ def transcribe_audio(
         initial_prompt,
         progress=gr.Progress(track_tqdm=True)
     ):
-    if audio_path is None:
-        raise gr.Error("Please upload your audio file.")
     if language == "Auto":
         language = None
     print(f"Loading whisper Model...")
@@ -55,8 +53,6 @@ def main():
                     type="filepath",
                     label="Audio File"
                 )
-                print(audio_path)
-                submit_button = gr.Button("Submit")
                 with gr.Accordion(label="Advanced Settings", open=False):
                     model_name = gr.Dropdown(
                         choices=["tiny", "base", "small", "medium", "large"],
@@ -76,7 +72,7 @@ def main():
                 result = gr.Dataframe(label="Result", headers=["start", "end", "text"])
                 download = gr.File(label="Download")
 
-        submit_button.click(
+        audio_path.upload(
             transcribe_audio,
             inputs=[audio_path, model_name, language, initial_prompt],
             outputs=[result, download]
