@@ -1,7 +1,7 @@
 from pathlib import Path
 
-import pandas as pd
 import gradio as gr
+import pandas as pd
 import whisper
 from whisper.utils import format_timestamp
 
