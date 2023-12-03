@@ -90,7 +90,7 @@ def main():
 
     # Queue functionality for handling multiple users
     demo.queue()
-    demo.launch()
+    demo.launch(server_name="0.0.0.0", show_api=False)
 
 
 if __name__ == "__main__":
