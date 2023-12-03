@@ -1,0 +1,12 @@
+services:
+  dialogue-draft:
+    build: .
+    working_dir: /opt/dialogue-draft
+    ports:
+      - "7860:7860"
+    environment:
+      - TZ=Asia/Tokyo
+      - PYTHONPATH=/opt/dialogue-draft
+      - NVIDIA_VISIBLE_DEVICES=all
+    runtime: nvidia
+    command: poetry run gradio app.py
