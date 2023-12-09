@@ -69,7 +69,7 @@ def main():
                         label="Language",
                     )
                     initial_prompt = gr.Textbox(
-                        lines=3,
+                        lines=4,
                         placeholder=(
                             "Optional text to provide as a prompt for the first window. This can be used to provide, or "
                             '"prompt-engineer" a context for transcription, e.g. custom vocabularies or proper nouns '
