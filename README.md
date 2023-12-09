@@ -1,6 +1,8 @@
 # dialogue-draft
 This is a transcription application using [openai-whisper](https://github.com/openai/whisper) and [gradio](https://github.com/gradio-app/gradio).
 
+![transcription](https://github.com/kyashy/dialogue-draft/assets/98370541/7c4d297a-90aa-4f7b-96b2-28ab505dcb57)
+
 ## Setup
 1. Install Docker Engine on Ubuntu
 
