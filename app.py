@@ -79,7 +79,11 @@ def main():
                     )
             # Define outputs
             with gr.Column():
-                result = gr.Dataframe(label="Result", headers=["start", "end", "text"])
+                result = gr.Dataframe(
+                    label="Result",
+                    headers=["start", "end", "text"],
+                    wrap=True,
+                )
                 download = gr.File(label="Download")
 
         audio_path.upload(
