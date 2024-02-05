@@ -65,3 +65,7 @@ This is a transcription application using [openai-whisper](https://github.com/op
 2. Stop application
 
     Press `CTRL+C` on the terminal
+
+## License
+
+This application includes components licensed under the Apache License, Version 2.0 (https://github.com/gradio-app/gradio) and the MIT License (https://github.com/openai/whisper).
