@@ -1,6 +1,8 @@
 services:
   dialogue-draft:
     build: .
+    image: dialogue-draft
+    container_name: dialogue-draft
     working_dir: /opt/dialogue-draft
     volumes:
       - .:/opt/dialogue-draft
