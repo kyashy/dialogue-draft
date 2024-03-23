@@ -20,13 +20,25 @@ def transcribe_audio(
     initial_prompt,
     progress=gr.Progress(track_tqdm=True),
 ):
-    if language == "Auto":
-        language = None
     print(f"Loading whisper Model...")
     # If you specify device="cuda:0", 8GB memory will not be enough, so first put it on the CPU.
     model = whisper.load_model(name=model_name, device="cpu")
     # Then move only the model to GPU.
     model.to("cuda:0")
+
+    if language == "Auto":
+        # load audio and pad/trim it to fit 30 seconds
+        audio = whisper.load_audio(audio_path)
+        audio = whisper.pad_or_trim(audio)
+
+        # make log-Mel spectrogram and move to the same device as the model
+        mel = whisper.log_mel_spectrogram(audio).to(model.device)
+
+        # detect the spoken language
+        _, probs = model.detect_language(mel)
+        language = max(probs, key=probs.get)
+        gr.Info(f"Detected language: {language}")
+
     print(f"Generating Transcript...")
     result = model.transcribe(
         audio=audio_path,
