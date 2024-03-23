@@ -60,7 +60,7 @@ def main():
                 with gr.Accordion(label="Advanced Settings", open=False):
                     model_name = gr.Dropdown(
                         choices=["tiny", "base", "small", "medium", "large"],
-                        value="large",
+                        value="medium",
                         label="Model",
                     )
                     language = gr.Dropdown(
