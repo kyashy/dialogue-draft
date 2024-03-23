@@ -22,7 +22,7 @@ def transcribe_audio(
 ):
     print(f"Loading whisper Model...")
     # If you specify device="cuda:0", 8GB memory will not be enough, so first put it on the CPU.
-    model = whisper.load_model(name=model_name, device="cpu")
+    model = whisper.load_model(name=model_name, device="cpu", download_root=".cache")
     # Then move only the model to GPU.
     model.to("cuda:0")
 
