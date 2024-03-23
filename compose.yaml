@@ -2,6 +2,8 @@ services:
   dialogue-draft:
     build: .
     working_dir: /opt/dialogue-draft
+    volumes:
+      - .:/opt/dialogue-draft
     ports:
       - "7860:7860"
     environment:

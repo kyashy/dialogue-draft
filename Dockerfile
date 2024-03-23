@@ -22,7 +22,7 @@ RUN apt update && apt upgrade -y \
 # Reference: https://python-poetry.org/docs/
 RUN curl -sSL https://install.python-poetry.org | python3.10 -
 ENV PATH /root/.local/bin:$PATH
-RUN poetry config virtualenvs.in-project true
+RUN poetry config virtualenvs.in-project false
 
 # ----------------
 # Locale and language settings
@@ -37,5 +37,5 @@ ENV LC_ALL en_US.UTF-8
 # ----------------
 # Reference: https://python-poetry.org/docs/basic-usage/
 WORKDIR /opt/dialogue-draft
-COPY app.py poetry.lock poetry.toml pyproject.toml /opt/dialogue-draft/
+COPY poetry.lock pyproject.toml /opt/dialogue-draft/
 RUN poetry install
