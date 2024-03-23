@@ -64,8 +64,8 @@ def main():
                         label="Model",
                     )
                     language = gr.Dropdown(
-                        choices=["Japanese", "English", "Auto"],
-                        value="Japanese",
+                        choices=["Auto", "English", "Japanese"],
+                        value="Auto",
                         label="Language",
                     )
                     initial_prompt = gr.Textbox(
