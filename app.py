@@ -60,7 +60,7 @@ def transcribe_audio(
 
 
 def main():
-    with gr.Blocks() as demo:
+    with gr.Blocks(title="DialogueDraft") as demo:
         # Title of the app
         gr.Markdown("# DialogueDraft")
         with gr.Row():
