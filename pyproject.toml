@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-openai-whisper = "^20231117"
+openai-whisper = "20240930"
 gradio = "^4.4.1"
 
 
