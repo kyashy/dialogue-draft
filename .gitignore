@@ -164,4 +164,3 @@ data/*
 
 # VSCode
 .vscode
-.devcontainer*

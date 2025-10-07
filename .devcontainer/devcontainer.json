@@ -1,0 +1,48 @@
+{
+  // https://code.visualstudio.com/docs/devcontainers/create-dev-container#_use-docker-compose
+  "name": "dialogue-draft",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "dialogue-draft",
+  "workspaceFolder": "/opt/dialogue-draft",
+  "shutdownAction": "stopCompose",
+
+  // Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+  "features": {
+    // https://github.com/devcontainers/features/tree/main/src/common-utils
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "upgradePackages": "false",
+      "username": "vscode",
+      "userUid": "automatic",
+      "userGid": "automatic"
+    },
+    // https://github.com/devcontainers/features/tree/main/src/git
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": "false"
+    }
+  },
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+  "remoteUser": "vscode",
+
+  "overrideCommand": true
+}
