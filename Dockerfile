@@ -20,9 +20,13 @@ RUN apt update && apt upgrade -y \
 # Install poetry
 # ----------------
 # Reference: https://python-poetry.org/docs/
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry POETRY_VERSION=2.2.1 python3.10 -
-ENV PATH /opt/poetry/bin:$PATH
-RUN poetry config virtualenvs.in-project false
+ENV POETRY_HOME=/opt/poetry \
+    POETRY_VERSION=2.2.1 \
+    POETRY_VIRTUALENVS_PATH=/opt/poetry \
+    PATH=/opt/poetry/bin:$PATH
+
+RUN curl -sSL https://install.python-poetry.org | python3.10 - \
+    && poetry config virtualenvs.in-project false
 
 # ----------------
 # Locale and language settings
